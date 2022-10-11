@@ -4,6 +4,7 @@ let dice1El = document.querySelector('.dice1');
 let dice2El = document.querySelector('.dice2');
 let dice3El = document.querySelector('.dice3');
 let btnRollDice = document.querySelector('.btn-roll-dice');
+let btnHistoryEl = document.querySelector('.btn-history');
 let sumEl = document.querySelector('.sum');
 
 //history
@@ -12,9 +13,9 @@ let historyObj = {
   secondDice: [],
   thirdDice: [],
 };
-let indexHistory = 0;
+let indexHistory = 0; // might delete
 
-// function to roll the dice
+// -------------------function to roll the dice starts--------------------
 btnRollDice.addEventListener('click', function () {
   document.querySelector('body').style.backgroundImage =
     'linear-gradient(to top left, #286b2a 0%, #c7a20d 100%)';
@@ -22,13 +23,11 @@ btnRollDice.addEventListener('click', function () {
   let dice2 = Math.trunc(Math.random() * 6) + 1;
   let dice3 = Math.trunc(Math.random() * 4) + 1;
 
-  historyObj.firstDice[indexHistory] = dice1;
-  historyObj.secondDice[indexHistory] = dice2;
-  historyObj.thirdDice[indexHistory] = dice3;
+  historyObj.firstDice.push(dice1);
+  historyObj.secondDice.push(dice2);
+  historyObj.thirdDice.push(dice3);
 
-  console.log(
-    `history: ${historyObj.firstDice} ${historyObj.secondDice} ${historyObj.thirdDice}`
-  );
+  console.log(`history: ${dice1} ${dice2} ${dice3}`);
 
   sumEl.textContent = dice1 + dice2;
 
@@ -60,4 +59,10 @@ btnRollDice.addEventListener('click', function () {
   if (sum === 7) {
     document.querySelector('body').style.background = '#EC2A00';
   }
+});
+// -------------------function to roll the dice ends--------------------
+
+btnHistoryEl.addEventListener('click', function () {
+  console.log('History btn clicked');
+  console.log(historyObj.firstDice);
 });

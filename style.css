@@ -36,7 +36,8 @@ body {
   text-align: center;
 }
 
-.btn-roll-dice {
+.btn-roll-dice,
+.btn-history {
   margin-top: 3rem;
   position: absolute;
   left: 50%;
