@@ -21,7 +21,7 @@ btnRollDice.addEventListener('click', function () {
     'linear-gradient(to top left, #286b2a 0%, #c7a20d 100%)';
   let dice1 = Math.trunc(Math.random() * 6) + 1;
   let dice2 = Math.trunc(Math.random() * 6) + 1;
-  let dice3 = Math.trunc(Math.random() * 4) + 1;
+  let dice3 = Math.trunc(Math.random() * 6) + 1;
 
   historyObj.firstDice.push(dice1);
   historyObj.secondDice.push(dice2);
@@ -48,12 +48,21 @@ btnRollDice.addEventListener('click', function () {
     dice3El.src = `blue.png`;
     document.querySelector('body').style.backgroundImage =
       'linear-gradient(to top left, #286b2a 0%, #0dc7ae 100%)';
+  } else if (dice3 === 4) {
+    dice3El.src = 'pirate.png';
+    document.querySelector('body').style.backgroundImage =
+      'linear-gradient(to top left, #000000 0%, #d1d1d1 100%)';
+  } else if (dice3 === 5) {
+    dice3El.src = 'pirate.png';
+    document.querySelector('body').style.backgroundImage =
+      'linear-gradient(to top left, #000000 0%, #d1d1d1 100%)';
   } else {
     dice3El.src = 'pirate.png';
     document.querySelector('body').style.backgroundImage =
       'linear-gradient(to top left, #000000 0%, #d1d1d1 100%)';
   }
 
+  //sum of the 2 dice
   let sum = dice1 + dice2;
   console.log(`sum = ${sum}`);
   if (sum === 7) {
