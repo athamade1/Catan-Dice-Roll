@@ -23,9 +23,31 @@ btnRollDice.addEventListener('click', function () {
   let dice2 = Math.trunc(Math.random() * 6) + 1;
   let dice3 = Math.trunc(Math.random() * 6) + 1;
 
+  //------------------add to history array STARTS HERE-----------------------
   historyObj.firstDice.push(dice1);
   historyObj.secondDice.push(dice2);
-  historyObj.thirdDice.push(dice3);
+  switch (dice3) {
+    case 1:
+      historyObj.thirdDice.push('yellow');
+      break;
+    case 2:
+      historyObj.thirdDice.push('green');
+      break;
+    case 3:
+      historyObj.thirdDice.push('blue');
+      break;
+    case 4:
+      historyObj.thirdDice.push('pirate');
+      break;
+    case 5:
+      historyObj.thirdDice.push('pirate');
+      break;
+    case 6:
+      historyObj.thirdDice.push('pirate');
+      break;
+  }
+  // historyObj.thirdDice.push(dice3);
+  //------------------add to history array ENDS HERE-----------------------
 
   console.log(`history: ${dice1} ${dice2} ${dice3}`);
 
@@ -74,4 +96,6 @@ btnRollDice.addEventListener('click', function () {
 btnHistoryEl.addEventListener('click', function () {
   console.log('History btn clicked');
   console.log(historyObj.firstDice);
+  console.log(historyObj.secondDice);
+  console.log(historyObj.thirdDice);
 });
